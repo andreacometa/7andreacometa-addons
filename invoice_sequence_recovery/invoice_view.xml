@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <menuitem string="Sequence Recovery" action="sequence_recovery.action_sequence_recovery"
+        id="menu_sequence_recovery_invoice" parent="account.menu_configuration_misc"
+        groups="sequence_recovery.group_sequence_recovery" />
+
+</data>
+</openerp>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<record id="view_order_line_report_data_form" model="ir.ui.view">
+			<field name="name">order.line.report.data.form</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name="arch" type="xml">
+				<label for="name" position="before">
+					<label for="report_line_type" />
+					<field name="report_line_type" colspan="4" on_change="on_change_report_line_type(report_line_type)"/>
+				</label>
+				<field name="product_id" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+				<field name="product_uom_qty" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+				<field name="product_uom" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+				<field name="product_uos_qty" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+				<field name="price_unit" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+				<field name="discount" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+				<field name="tax_id" position="attributes">
+					<attribute name="attrs">{'readonly':[('report_line_type', 'in', ('t', 'n', 's'))]}</attribute>
+				</field>
+			</field>
+		</record>
+
+    </data>
+</openerp>

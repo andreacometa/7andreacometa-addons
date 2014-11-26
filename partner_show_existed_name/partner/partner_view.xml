@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="view_partner_partner_show_existed_name_form" model="ir.ui.view">
+			<field name="name">res.partner.partner_show_existed_name.form</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form"/>
+			<field name="arch" type="xml">
+				<field name="name" position="replace">
+					<field name="name" default_focus="1" placeholder="Name" on_change="onchange_name(name)"/>
+				</field>
+			</field>
+		</record>
+
+	</data>
+</openerp>

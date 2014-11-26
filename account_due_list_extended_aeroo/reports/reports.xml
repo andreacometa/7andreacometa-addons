@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="report_stampa_scadenzario_aeroo" model="ir.actions.report.xml">
+            <field name="name">Scadenzario ordinato per scadenza</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.move.line</field>
+            <field name="report_name">scadenzario_aeroo</field>
+            <field name="report_type">aeroo</field>
+            <field name="tml_source">file</field>
+            <field name="in_format">oo-odt</field>
+            <field name="out_format" eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')"></field>
+            <field name="parser_loc">account_due_list_extended_aeroo/reports/parser.py</field>
+            <field name="report_rml">account_due_list_extended_aeroo/reports/scadenzario.odt</field>
+            <field name="parser_state">loc</field>
+        </record>
+
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['account.invoice']" name="models"/>
+            <field name="name">Scadenzario ordinato per scadenza</field>
+            <field eval="'ir.actions.report.xml,'+str(report_stampa_scadenzario_aeroo)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+
+        <record id="report_stampa_scadenzario_aeroo_non_ord" model="ir.actions.report.xml">
+            <field name="name">Scadenzario non ordinato</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.move.line</field>
+            <field name="report_name">scadenzario_aeroo_non_ord</field>
+            <field name="report_type">aeroo</field>
+            <field name="tml_source">file</field>
+            <field name="in_format">oo-odt</field>
+            <field name="out_format" eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')"></field>
+            <field name="parser_loc">account_due_list_extended_aeroo/reports/parser.py</field>
+            <field name="report_rml">account_due_list_extended_aeroo/reports/scadenzario_non_ord.odt</field>
+            <field name="parser_state">loc</field>
+        </record>
+
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['account.invoice']" name="models"/>
+            <field name="name">Scadenzario non ordinato</field>
+            <field eval="'ir.actions.report.xml,'+str(report_stampa_scadenzario_aeroo_non_ord)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+
+    </data>
+</openerp>
