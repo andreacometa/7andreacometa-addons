@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<openerp>
+	<data>
+
+	<!-- ======================================================	-->
+	<!--  						INVOICE FORM					-->
+	<!-- ======================================================	-->
+	<record id="view_invoice_form_imm_diff" model="ir.ui.view">
+		<field name="name">account.invoice.form.imm_diff</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.invoice_form"/>
+		<field name="arch" type="xml">
+			<button name="%(account.account_invoices)d" position="replace">
+				<button name="print_imm_diff_invoice" string="Print Invoice" type="object" icon="gtk-print" states="open,paid,proforma,sale,proforma2"/>
+			</button>
+			<field name="name" position="after">
+				<field name="immediate" attrs="{'readonly':[('state','in',['open', 'paid'])]}"
+					groups="account.group_account_manager" />
+			</field>
+		</field>
+	</record>
+
+	<record id="view_account_invoice_filter_imm_diff" model="ir.ui.view">
+		<field name="name">account.invoice.select.imm_diff</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.view_account_invoice_filter"/>
+		<field name="arch" type="xml">
+			<filter name="unpaid" position="after" >
+				<separator orientation="vertical"/>
+				<filter name="Immediate" icon="terp-dolar" string="Immediate" domain="[('immediate','=',True)]" />
+				<filter name="Differite" icon="terp-dolar" string="Differite" domain="[('immediate','=',False)]" />
+		   </filter>
+		</field>
+	</record>
+
+
+
+	</data>
+</openerp>
